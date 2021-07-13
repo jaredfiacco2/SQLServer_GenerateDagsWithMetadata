@@ -1,4 +1,15 @@
-alter procedure Filter_EdgesAndNodes_OneNodeStartingPoint (@id nvarchar(255)) as
+USE [DataDocumentation]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Filter_EdgesAndNodes_StartingNodeLikeParam_SP]    Script Date: 7/12/2021 8:09:20 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE procedure [dbo].[Filter_EdgesAndNodes_StartingNodeLikeParam_SP] (@id nvarchar(255)) as
 
 --------------------------------------------------------------
 --Remove any Temp tables from last run, start from scratch----
@@ -56,8 +67,8 @@ CREATE TABLE #NewNodes	([node] NVARCHAR(255));
 	from
 		vEdges
 	where 
-		[to]	= @id or
-		[from]	= @id
+		[to]	like '%' + @id + '%' or
+		[from]	like '%' + @id + '%' 
 ---------------------------------------------------------
 --Find all distinct nodes in your list of edges----------
 ---------------------------------------------------------
@@ -137,3 +148,6 @@ select * from #Edges
 truncate table FilteredNodes_D
 insert into FilteredNodes_D
 select * from #Nodes
+GO
+
+

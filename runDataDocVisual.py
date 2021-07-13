@@ -16,18 +16,18 @@ PASSWORD = 'DocumentThisData!'
 DATABASE_CONNECTION = f'mssql://{USERNAME}:{PASSWORD}@{SERVER}/{DATABASE}?driver={DRIVER}'
 
 engine = create_engine(DATABASE_CONNECTION)
-session = scoped_session(sessionmaker(autocommit=True, autoflush=True, bind=engine))
 connection = engine.connect()
 
 ##Refresh  
 #results = connection.execute('[dbo].[Refresh_Edges]')
 #results = connection.execute('[dbo].[Refresh_Nodes]')
 #results = connection.execute(''' exec Filter_EdgesAndNodes_OneNodeStartingPoint @id= 'DWDiagnostics.dbo.pdw_health_components'; ''')
-# #Load Data and Load Visual
-# edge_df = pd.read_sql_query(''' select * from [DataDocumentation].[dbo].[vEdges]  ''', connection)
-# node_df = pd.read_sql_query(''' select * from [DataDocumentation].[dbo].[vNodes]  ''', connection)
-edge_df = pd.read_sql_query(''' select * from [DataDocumentation].[dbo].[FilteredEdges_D]  ''', connection)
-node_df = pd.read_sql_query(''' select * from [DataDocumentation].[dbo].[FilteredNodes_D]  ''', connection)
+
+##Load Data and Load Visual
+edge_df = pd.read_sql_query(''' select * from [DataDocumentation].[dbo].[vEdges]  ''', connection)
+node_df = pd.read_sql_query(''' select * from [DataDocumentation].[dbo].[vNodes]  ''', connection)
+#edge_df = pd.read_sql_query(''' select * from [DataDocumentation].[dbo].[FilteredEdges_D]  ''', connection)
+#node_df = pd.read_sql_query(''' select * from [DataDocumentation].[dbo].[FilteredNodes_D]  ''', connection)
 
 #Open Jaal Website in Default Browser 
 webbrowser.open('http://127.0.0.1:8050/')

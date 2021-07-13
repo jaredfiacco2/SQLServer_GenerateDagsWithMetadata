@@ -1,12 +1,13 @@
 USE [DataDocumentation]
 GO
 
-/****** Object:  View [dbo].[vNodes]    Script Date: 7/10/2021 3:11:48 PM ******/
+/****** Object:  View [dbo].[vNodes]    Script Date: 7/12/2021 8:05:59 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 
@@ -27,7 +28,7 @@ select
 	,object_create_date		as [create_date]
 	,object_modify_date		as [modify_date]
 from
-	dbo.Nodes
+	dbo.Nodes_D
 GO
 
 

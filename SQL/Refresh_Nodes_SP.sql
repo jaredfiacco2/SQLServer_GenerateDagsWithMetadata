@@ -1,7 +1,7 @@
 USE [DataDocumentation]
 GO
 
-/****** Object:  StoredProcedure [dbo].[Refresh_Nodes]    Script Date: 7/10/2021 3:09:27 PM ******/
+/****** Object:  StoredProcedure [dbo].[Refresh_Nodes_SP]    Script Date: 7/12/2021 8:07:12 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,15 +9,15 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE Procedure [dbo].[Refresh_Nodes] as
+CREATE Procedure [dbo].[Refresh_Nodes_SP] as
 ----------------------------------------------
 --Traverse Databases--------------------------
 --Get All Objects User-Made Objects-----------
 ----------------------------------------------
-truncate table DataDocumentation.dbo.Nodes
+truncate table DataDocumentation.dbo.Nodes_D
 exec sp_MSforeachdb 
  	'use ?
-	insert into DataDocumentation.dbo.Nodes
+	insert into DataDocumentation.dbo.Nodes_D
     Select 
 		 distinct
 		 d.dbid			database_id

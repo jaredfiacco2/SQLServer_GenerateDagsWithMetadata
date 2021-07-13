@@ -1,12 +1,13 @@
 USE [DataDocumentation]
 GO
 
-/****** Object:  View [dbo].[vEdges]    Script Date: 7/10/2021 3:11:57 PM ******/
+/****** Object:  View [dbo].[vEdges]    Script Date: 7/12/2021 8:05:48 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 
@@ -30,13 +31,13 @@ select
 	,o_to.object_id			to_object_id	
 	,count(*)				[weight]
 from
-	[dbo].[Edges] d
+	[dbo].[Edges_D] d
 left join 
-	dbo.Nodes o_from on
+	dbo.Nodes_D o_from on
 	o_from.database_name = d.referencing_database and 
 	o_from.object_id		= d.referencing_id
 left join 
-	dbo.Nodes o_to on
+	dbo.Nodes_D o_to on
 	o_to.database_name  = d.referenced_database and 
 	o_to.object_id		= d.referenced_id
 where 

@@ -1,4 +1,14 @@
-alter procedure Filter_EdgesAndNodes_OneNodeStartingPoint (@id nvarchar(255)) as
+USE [DataDocumentation]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Filter_EdgesAndNodes_OneNodeStartingPoint_SP]    Script Date: 7/12/2021 8:06:58 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE procedure [dbo].[Filter_EdgesAndNodes_OneNodeStartingPoint_SP] (@id nvarchar(255)) as
 
 --------------------------------------------------------------
 --Remove any Temp tables from last run, start from scratch----
@@ -72,13 +82,15 @@ CREATE TABLE #NewNodes	([node] NVARCHAR(255));
 
 	insert into #NewNodes
 	select * from #Nodes
----------------------------------------------------------
---Find all distinct nodes in your list of edges----------
----------------------------------------------------------
-	select * from #Edges
-	select * from #Nodes
-	select * from #NewEdges
-	select * from #NewNodes
+
+-----------------------------------------------------------
+--Testing Purposes Only------------------------------------
+----Find all distinct nodes in your list of edges----------
+-----------------------------------------------------------
+--	select * from #Edges
+--	select * from #Nodes
+--	select * from #NewEdges
+--	select * from #NewNodes
 -----------------------------------------------------------
 ----Use Cursor to step through a running list of Nodes-----
 -----------------------------------------------------------
@@ -135,3 +147,6 @@ select * from #Edges
 truncate table FilteredNodes_D
 insert into FilteredNodes_D
 select * from #Nodes
+GO
+
+

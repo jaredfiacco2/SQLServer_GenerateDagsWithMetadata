@@ -1,7 +1,7 @@
 USE [DataDocumentation]
 GO
 
-/****** Object:  StoredProcedure [dbo].[Refresh_Edges]    Script Date: 7/10/2021 3:10:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[Refresh_Edges_SP]    Script Date: 7/12/2021 8:07:09 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -10,15 +10,16 @@ GO
 
 
 
-CREATE Procedure [dbo].[Refresh_Edges] as
+
+CREATE Procedure [dbo].[Refresh_Edges_SP] as
 ----------------------------------------------
 --Traverse Databases--------------------------
 --Get All Object Dependencies-----------------
 ----------------------------------------------
-truncate table DataDocumentation.dbo.Edges
+truncate table DataDocumentation.dbo.Edges_D
 exec sp_MSforeachdb 
  	'use ?
-	insert into DataDocumentation.dbo.Edges
+	insert into DataDocumentation.dbo.Edges_D
 	select 
 		 d.referencing_id
 		,''?''							referencing_database

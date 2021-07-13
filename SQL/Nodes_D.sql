@@ -1,14 +1,14 @@
 USE [DataDocumentation]
 GO
 
-/****** Object:  Table [dbo].[Nodes]    Script Date: 7/10/2021 3:12:09 PM ******/
+/****** Object:  Table [dbo].[Nodes_D]    Script Date: 7/12/2021 8:04:47 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Nodes](
+CREATE TABLE [dbo].[Nodes_D](
 	[database_id] [smallint] NULL,
 	[database_name] [nvarchar](38) NOT NULL,
 	[schema_id] [int] NOT NULL,
