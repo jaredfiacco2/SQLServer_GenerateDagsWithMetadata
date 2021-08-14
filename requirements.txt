@@ -1,0 +1,8 @@
+time
+json
+requests
+pandas
+sqlalchemy
+pyodbc
+webbrowser
+jaal

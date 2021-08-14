@@ -8,11 +8,11 @@ from jaal.datasets import load_got
 
 
 ## SQL ALCHEMY - Set up Database Connection
-SERVER = 'JERDSURF\JAREDSLILSERVER'
-DATABASE = 'DataDocumentation'
+SERVER = 'COMPUTER\SERVER'
+DATABASE = 'DATABASENAME'
 DRIVER = 'SQL Server Native Client 11.0'
-USERNAME = 'DataDocumentation'
-PASSWORD = 'DocumentThisData!'
+USERNAME = 'SA_USERNAME'
+PASSWORD = 'SA_PASSWORD'
 DATABASE_CONNECTION = f'mssql://{USERNAME}:{PASSWORD}@{SERVER}/{DATABASE}?driver={DRIVER}'
 
 engine = create_engine(DATABASE_CONNECTION)
