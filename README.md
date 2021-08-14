@@ -52,7 +52,7 @@
 
 - Note: The server depicted in the gif below is my personal server.
 
-<img src="demo.gif" alt="Demo"/>
+<img src="images\demo.gif" alt="Demo"/>
 
 ### Built With
 
